@@ -1,12 +1,18 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+
+
+
     :root {
-        --color-background: #EFEFEB;
-        --color-primary: #F66867;
-        --color-secondary: #F4B2B4;
+        --color-background: #F66867;
+        --color-primary: #EFEFEB;
+        --color-secondary: #b11226;
         --color-primary-title: #5b5b5b;
+        --color-secondary-title: #2bff4e;
         --color-text: #868684;
+
+        transition: all 1s;
     }
 
 
@@ -19,7 +25,12 @@ const GlobalStyle = createGlobalStyle`
 
     html, body, #__next {
         height: 100vh;
-        background: var(---color-background);
+        background: var(--color-background);
+        
+    }
+
+    ::selection {
+        background: transparent
     }
 `;
 
