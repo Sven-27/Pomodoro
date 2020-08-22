@@ -8,7 +8,7 @@ interface TimerProps {
 
 const Timer: React.FC<TimerProps> = ({ isTimming }) => {
   const [seconds, setSeconds] = useState(0);
-  const [minutes, setMinutes] = useState(25);
+  const [minutes, setMinutes] = useState(1);
 
   const [intervalId, setIntervalId] = useState(null);
 
@@ -16,9 +16,11 @@ const Timer: React.FC<TimerProps> = ({ isTimming }) => {
 
   useEffect(() => {
     if (isTimming) {
+      // Here we start the function handleStartTimer every time when isTimming was true
       handleStartTimer();
     }
 
+    // When isTimming was false, clear the interval method.
     clearInterval(intervalId);
   }, [isTimming]);
 
@@ -33,13 +35,14 @@ const Timer: React.FC<TimerProps> = ({ isTimming }) => {
         action === "Work Time !!!"
           ? setAction("Take some rest !!!")
           : setAction("Work Time !!!");
-        action === "Work Time !!!" ? setMinutes(4) : setMinutes(25);
+        action === "Work Time !!!" ? setMinutes(4) : setMinutes(24);
       }
     }
 
     return;
   }, [seconds]);
 
+  // Here is the function to Start the Timer
   const handleStartTimer = () => {
     if (minutes === 25 || (action === "Take some rest !!!" && minutes === 5)) {
       setMinutes(minutes - 1);

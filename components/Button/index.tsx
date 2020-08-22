@@ -9,6 +9,8 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ isTimming, action }) => {
   const [title, setTitle] = useState("");
+
+  // every time when isTimmming was changed, it will change the Button title
   useEffect(() => {
     if (isTimming) return setTitle("Stop");
 
