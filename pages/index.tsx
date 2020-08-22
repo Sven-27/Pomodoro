@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import GlobalStyle from "../styles/global";
 
 import Timer from "../components/Timer";
+import Button from "../components/Button";
 
 import { Container, ButtonContainer } from "../styles";
-import Button from "../components/Button";
 
 const App: React.FC = () => {
   const [isTimming, setIsTimming] = useState(false);
-
-  useEffect(() => {
-    document.title = "Pomodoro Timer";
-
-    setTimeout(() => alert("Acabou o tempo !!!"), 3000);
-  }, []);
 
   return (
     <>
